@@ -11,13 +11,15 @@ class UserRepository
         return Users::find()->orderBy(['id'=>SORT_DESC])->all();
     }
 
-    public static function createUser($login, $password, $age, $username){
+    public static function createUser($login, $password, $age, $name, $surname, $patronimic){
 
         $user = new Users();
         $user->login = $login;
         $user->password = password_hash($password, PASSWORD_DEFAULT);
         $user->age = $age;
-        $user->username = $username;
+        $user->name = $name;
+        $user->surname = $surname;
+        $user->patronimic = $patronimic;
         $user->save();
         return $user->id;
     }
