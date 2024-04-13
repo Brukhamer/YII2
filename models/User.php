@@ -3,7 +3,11 @@
 namespace app\models;
 
 
-class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
+use app\repository\UserRepository;
+use yii\base\BaseObject;
+use yii\web\IdentityInterface;
+
+class User extends BaseObject implements IdentityInterface
 {
     public $id;
     public $username;
@@ -34,7 +38,7 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
      */
     public static function findIdentity($id)
     {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+        return UserRepository::getUser($id);
     }
 
     /**
@@ -102,4 +106,6 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
     {
         return $this->password === $password;
     }
+
+
 }

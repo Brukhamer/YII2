@@ -27,4 +27,8 @@ class UserRepository
         return Users::find()->where(['id'=>$id])->one();
     }
 
+    public static function getUserByUsername($username){
+        return Users::find()->where(['login' => $username])->one();
+    }
+
 }
