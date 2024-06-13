@@ -19,7 +19,8 @@ class UserForm extends Model
             'age' => 'Возраст',
             'password' => 'Пароль',
             'passwordRepeat' => 'Повторенный пароль',
-            'username' => 'Ваше имя'
+            'name' => 'Ваше имя',
+            'surname' => 'Ваша фамилия'
         ];
     }
 
